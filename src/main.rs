@@ -17,7 +17,10 @@ fn main() {
     gpio.set_mode(GPIO_LED, Mode::Output);
 
     // Blink an LED attached to the pin on and off
-    gpio.write(GPIO_LED, Level::High);
-    thread::sleep(Duration::from_millis(500));
-    gpio.write(GPIO_LED, Level::Low);
+    loop {
+    	gpio.write(GPIO_LED, Level::High);
+    	thread::sleep(Duration::from_millis(500));
+    	gpio.write(GPIO_LED, Level::Low);
+    	thread::sleep(Duration::from_millis(500));
+    }
 }
